@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import { Sprite } from 'pixi.js';
 
 import { Game } from './game';
 
@@ -8,11 +7,8 @@ export class Screenshot {
     pixi: PIXI.Application;
     game: Game
 
-    // public imageArray : Array<PIXI.Sprite>;
-
     constructor(x: number, y: number, width: number, height: number, pixi: PIXI.Application, game: Game) {
 
-        // this.imageArray = [];
         this.pixi = pixi
         this.game = game
 
@@ -25,10 +21,10 @@ export class Screenshot {
                 console.log('keydown');
                 this.takeScreenshot()
                 break;
-            // case "D":
-            //     console.log('delet');
-            //     // this.deleteScreenshot()
-            //     break;
+            case "D":
+                console.log('delet');
+                this.deleteScreenshot()
+                break;
         }
     }
 
@@ -46,14 +42,9 @@ export class Screenshot {
         sprite.width = 300
         sprite.height = 200
         this.pixi.stage.addChild(sprite)
-        // this.imageArray.push(sprite)
     }
 
-    // WIP 
-    // deleteScreenshot() {
-    //     this.pixi.stage.destroy()
-    //     this.pixi.sprite.destroy
-    //     this.imageArray.pop();
-    //     // console.log(this.imageArray)
-    // }
+    deleteScreenshot() {
+        this.pixi.stage.removeChild(this.pixi.stage.children[1])
+    }
 }
